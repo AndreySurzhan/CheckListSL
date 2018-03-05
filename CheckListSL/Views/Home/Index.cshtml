@@ -1,0 +1,173 @@
+﻿
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChecklistSL</title>
+    @Styles.Render("~/bundles/css")
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="description" content="Check list with Dynamic translation of the items" />
+</head>
+<body ng-cloak>
+    <div class="wrapper">
+        <header id="cl-header" class="">
+            <div id="cl-logo">
+                <a href="#">ChecklistSL</a>
+            </div>
+            <nav id="cl-navigation">
+                <ul>
+                    <li>
+                        <!-- <a class="" href="#">ChecklistCL</a> -->
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="cl-container">
+
+            <!-- Checklists Column-->
+            <div id="cl-checklists-container" class="cl-container-col" ng-controller="checklistController as clCtrl">
+                <div>
+
+                    <!-- Add checklist input -->
+                    <form class="cl-add-elemnt" name="addChecklistForm">
+                        <button class="cl-btn" ng-click="clCtrl.addChecklist()">
+                            <i class="material-icons">library_add</i>
+                        </button>
+                        <input class="cl-input"
+                               type="text" name="checklist" placeholder="Add Checklist"
+                               ng-model="clCtrl.newChecklist.name">
+                    </form>
+                    <!-- END Add checklist input -->
+
+                    <hr>
+
+                    <div id="cl-checklists-placeholder" ng-show="!clCtrl.checklistsExist" ng-cloak>
+                        <span>Please Add Your First Checklist</span>
+                    </div>
+
+                    <ul id="cl-checklists" class="cl-elements-list" ng-repeat="checklist in clCtrl.checklists | orderBy : '-id'">
+
+                        <!-- New added checklist-->
+                        <li ng-hide="checklist.isEditing">
+                            <button class="cl-btn cl-btn-checklist" ng-class="{active : checklist.isActive === true}" ng-click="clCtrl.activateChecklist(checklist)">
+                                <span>{{checklist.name}}</span>
+                            </button>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-checklist" ng-click="clCtrl.editChecklist(checklist)">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-checklist" ng-click="clCtrl.deleteChecklist(checklist)">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added checklist-->
+                        <!-- Checklist while editing -->
+                        <li ng-show="checklist.isEditing">
+                            <div class="cl-add-elemnt">
+                                <input class="cl-input" type="text" name="edit-checklist" placeholder="Edit Checklist" ng-model="checklist.name">
+                                <div class="cl-btn-group">
+                                    <button class="cl-btn" ng-click="clCtrl.updateChecklist(checklist)">
+                                        <i class="material-icons">done</i>
+                                    </button>
+                                </div>
+                                <div class="cl-btn-group">
+                                    <button class="cl-btn" name="delete-checklist" ng-click="clCtrl.cancelEdit(checklist)">
+                                        <i class="material-icons">clear</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- END Checklist while editing -->
+                    </ul>
+                </div>
+            </div>
+ 
+            <!-- END Checklists Column-->
+            <!-- Items Column-->
+            <div id="cl-items-container" class="cl-container-col" ng-controller="itemController as iCtrl">
+                <div>
+
+                    <!-- Add Item input -->
+                    <form class="cl-add-elemnt" name="form">
+                        <button class="cl-btn" ng-click="iCtrl.addItem()" ng-disabled="!iCtrl.activeChecklist">
+                            <i class="material-icons">playlist_add</i>
+                        </button>
+                        <input class="cl-input" type="text"
+                               name="item" placeholder="Add Item" ng-model="iCtrl.newItem.name"
+                               ng-disabled="!iCtrl.activeChecklist">
+                    </form>
+                    <!-- END Add Item input -->
+
+                    <hr>
+
+                    <ul id="cl-items" class="cl-elements-list" ng-repeat="item in iCtrl.activeChecklist.items  | orderBy : '-id'">
+
+                        <!-- New added item-->
+                        <li ng-hide="item.isEditing">
+                            <input class="cl-checkbox" type="checkbox" name="item-checkbox" ng-click="iCtrl.checkItem(item)"
+                                   ng-checked="item.isChecked">
+                            <div class="cl-item" ng-class="{'cl-item-checked': item.isChecked}">
+                                <h4>{{item.name}}</h4>
+                                <hr>
+                                <div>
+                                    <ul class="cl-languages-list" ng-repeat="translation in item.translations">
+                                        <li>
+                                            <span>{{translation.language}} - {{translation.translationString}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-item" ng-click="iCtrl.editItem(item)">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-item" ng-click="iCtrl.deleteItem(item)">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added item-->
+                        <!-- Item while editing -->
+                        <li ng-show="item.isEditing">
+                            <div class="cl-add-elemnt">
+                                <input class="cl-input" type="text" name="edit-item" placeholder="Edit Item" ng-model="item.name">
+                                <div class="cl-btn-group">
+                                    <button class="cl-btn" ng-click="iCtrl.updateItem(item)">
+                                        <i class="material-icons">done</i>
+                                    </button>
+                                </div>
+                                <div class="cl-btn-group">
+                                    <button class="cl-btn" ng-click="iCtrl.cancelEdit(item)">
+                                        <i class="material-icons">clear</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- END Item while editing -->
+
+                    </ul>
+
+                </div>
+                <a class="cl-translation-copyrights-link" ng-href="{{iCtrl.translationServiceCopyRights.link}}">{{iCtrl.translationServiceCopyRights.text}}</a>
+            </div>
+            <!-- END Items Column-->
+        </div>
+
+        <footer id="cl-footer" class="main-footer">
+            <span>Author: Andrei Surzhan</span>
+            <span></span>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/app")
+</body>
+</html>
+

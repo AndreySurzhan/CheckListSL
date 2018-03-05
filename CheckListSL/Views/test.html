@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChecklistSL</title>
+    <link href="./Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="wrapper">
+        <header id="cl-header" class="">
+                <div id="cl-logo">
+                    <a href="#">ChecklistSL</a>
+                </div>
+                <nav id="cl-navigation">
+                    <ul>
+                        <li>
+                            <!-- <a class="" href="#">ChecklistCL</a> -->
+                        </li>
+                    </ul>
+                </nav>
+        </header>
+
+        <div id="cl-container">
+
+            <!-- Checklists Column-->
+            <div id="cl-checklists-container" class="cl-container-col">
+                <div>
+
+                    <!-- Add checklist input -->
+                    <div class="cl-add-elemnt">
+                        <button class="cl-btn">
+                            <i class="material-icons">library_add</i>
+                        </button>
+                        <input class="cl-input" type="text" name="add-checklist" placeholder="Add Checklist">
+                    </div>
+                    <!-- END Add checklist input -->
+
+                    <hr>
+
+                    <ul id="cl-checklists" class="cl-elements-list">
+
+                        <!-- New added checklist-->
+                        <li>
+                            <button class="cl-btn cl-btn-checklist">
+                                <span>Checklist</span>
+                            </button>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-checklist">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-checklist">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added checklist-->
+
+                        <!-- New added checklist-->
+                        <li>
+                            <button class="cl-btn cl-btn-checklist">
+                                <span>Checklist</span>
+                            </button>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-checklist">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-checklist">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added checklist-->
+
+                        <!-- Checklist while editing -->
+                        <li>
+                            <div class="cl-add-elemnt">
+                                <input class="cl-input" type="text" name="edit-checklist" placeholder="Edit Checklist" value="Checklist to edit">
+                                <button class="cl-btn">
+                                    <i class="material-icons">done</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END Checklist while editing -->  
+
+                        <!-- New added checklist-->
+                        <li>
+                            <button class="cl-btn cl-btn-checklist">
+                                <span>Checklist</span>
+                            </button>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-checklist">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-checklist">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added checklist-->
+                    </ul>    
+                </div>    
+            </div>
+            <!-- END Checklists Column-->
+
+            <!-- Items Column-->
+            <div id="cl-items-container" class="cl-container-col">
+                <div>
+
+                    <!-- Add Item input -->
+                    <div class="cl-add-elemnt">
+                        <button class="cl-btn">
+                            <i class="material-icons">playlist_add</i>
+                        </button>
+                        <input class="cl-input" type="text" name="add-item" placeholder="Add Item">
+                    </div>
+                    <!-- END Add Item input -->
+
+                    <hr>
+
+                    <ul id="cl-items" class="cl-elements-list">
+                        <!-- New added item-->
+                        <li>
+                            <input class="cl-checkbox" type="checkbox" name="item-checkbox">
+                            <div class="cl-item">
+                                <h5>New Item</h5>
+                                <hr>
+                                <div>
+                                    <ul class="cl-languages-list">
+                                        <li>
+                                            <span>English - Milk</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-item">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-item">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added item-->
+
+                         <!-- New added item-->
+                        <li>
+                            <input class="cl-checkbox" type="checkbox" name="item-checkbox">
+                            <div class="cl-item cl-item-checked" disable>
+                                <h5>New Item</h5>
+                                <hr>
+                                <div>
+                                    <ul class="cl-languages-list">
+                                        <li>
+                                            English - Milk
+                                        </li>
+                                        <li>
+                                            <span>English - Milk</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-item">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-item">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added item-->
+
+                        <!-- Item while editing -->
+                        <li>
+                            <div class="cl-add-elemnt">
+                                <input class="cl-input" type="text" name="edit-item" placeholder="Edit Item" value="Item to edit">
+                                <button class="cl-btn">
+                                    <i class="material-icons">done</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END Item while editing -->
+
+
+                         <!-- New added item-->
+                        <li>
+                            <input class="cl-checkbox" type="checkbox" name="item-checkbox">
+                            <div class="cl-item cl-item-checked" disable>
+                                <h5>New Item</h5>
+                                <hr>
+                                <div>
+                                    <ul class="cl-languages-list">
+                                        <li>
+                                            English - Milk
+                                        </li>
+                                        <li>
+                                            <span>English - Milk</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="edit-item">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>
+                            </div>
+                            <div class="cl-btn-group">
+                                <button class="cl-btn" name="delete-item">
+                                    <i class="material-icons">delete_forever</i>
+                                </button>
+                            </div>
+                        </li>
+                        <!-- END New added item-->
+                        
+                    </ul>    
+                </div>
+            </div>
+            <!-- END Items Column-->
+        </div>
+
+        <footer id="cl-footer" class="main-footer">
+            <span>Author: Andrei Surzhan</span>
+        </footer>
+    </div>
+</body>
+</html>
+

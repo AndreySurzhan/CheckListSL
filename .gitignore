@@ -1,0 +1,8 @@
+.vs
+/packages
+/CheckListSL/obj/Debug
+/CheckListSL/Scripts/*
+/CheckListSL.Tests/
+/CheckListSL/bin
+/CheckListSL/.bin
+/CheckListSL/Properties

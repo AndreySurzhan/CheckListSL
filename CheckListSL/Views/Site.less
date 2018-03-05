@@ -1,0 +1,217 @@
+﻿@bg-color: #E0F7FA;
+@checklists-col-color: #00838F;
+@items-col-color: #26C6DA;
+@checklist-element-color: @items-col-color;
+@btn-bg-color: #2ecc71;
+@btn-color: #ecf0f1;
+@header-bg-color: @checklists-col-color;
+@footer-bg-color: @checklists-col-color;
+
+// Overloading sytles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  background-color: @bg-color;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.cl-box-decoration {
+  border-width: 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+}
+
+.cl-container-col {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 2px solid black;
+  margin: 20px 10px 20px 10px;
+  .cl-box-decoration
+}
+
+.cl-elements-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px;
+  margin: 5px;
+  list-style: none;
+}
+
+.cl-elements-list li {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.cl-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: space-around;
+  padding:5px;
+  width: 100%;
+  .cl-box-decoration
+}
+
+.cl-item {
+  background-color: white;
+  .cl-element;
+  .cl-box-decoration;
+}
+
+.cl-checklist {
+  background-color: @checklist-element-color;
+  .cl-element;
+  .cl-box-decoration;
+}
+
+.cl-item-checked {
+  .cl-item;
+  text-decoration: line-through;
+  background-color: lighten(@items-col-color, 30%);
+  color: lighten(black, 50%)
+}
+
+.cl-languages-list {
+  font-size: 10px;
+  margin:3px;
+  text-decoration: none!important;
+}
+
+.cl-languages-list li {
+  margin: 3px;
+}
+
+.cl-add-elemnt {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  margin: 10px;
+  width: 100%;
+}
+
+.cl-checkbox {
+  width: 20px;
+  height: 20px;
+  margin: auto 5px auto 5px;
+}
+
+.cl-input {
+  margin: auto 10px auto 10px;
+  padding:5px;
+  border:none;
+  width: 100%;
+  .cl-box-decoration;
+}
+
+.cl-btn-group {
+  display: flex;
+  flex-direction: row;
+  margin: auto 0px auto 5px;
+}
+
+.cl-btn {
+  height: 26px;
+  width: 26px;
+  background-color: @btn-bg-color;
+  color: @btn-color;
+  transition: background-color .3s;
+  .cl-box-decoration
+}
+
+.cl-btn:hover, .cl-btn:focus {
+  background-color: darken(@btn-bg-color, 10%);
+}
+
+.cl-btn span {
+  padding: 5px 10px;
+}
+
+.cl-btn-checklist{
+  .cl-btn;
+  width: 100%;
+  background-color: @checklist-element-color;
+}
+
+.cl-btn-checklist:hover, .cl-btn-checklist:focus, .cl-btn-checklist:active {
+  background-color: darken(@checklist-element-color, 15%);
+}
+
+#cl-logo a {
+  color: @btn-color;
+  font-family: fantasy;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#cl-logo a:hover {
+  color: @checklist-element-color;
+}
+
+#cl-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  flex-grow: 1;
+};
+
+#cl-checklists-container {
+  background-color: @checklists-col-color;
+  padding: 10px;
+  flex: 1;
+}
+
+#cl-items-container {
+  background-color: @items-col-color;
+  padding: 10px;
+  flex: 2;
+}
+
+#cl-footer {
+  display: flex;
+  background-color: @footer-bg-color;
+  text-align: center;
+  padding: 20px;
+  margin: auto auto 0 auto;
+  width: 100%;
+  box-shadow: 0px -2px 6px rgba(0, 0, 0, .6);
+}
+
+#cl-footer span {
+  padding: 5px 10px;
+  color: @btn-color;
+}
+
+#cl-header {
+  display: flex;
+  background-color: @header-bg-color;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+}
+
+nav ul {
+  list-style: none;
+}
+
